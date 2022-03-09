@@ -10,6 +10,29 @@ When Given a list or an array, People Typically peek elements one by one in a si
 
 
 ## 1. Recursion and Backward-Traversal
+A function could call another function, which could keep on calling others. This is called a Call-Stack. Call-Stack is a type of Stack data structure that follows LIFO(Last In and First Out) rule. This means when function A is calling function B, there is a chance for A to do something after the context has left B's scope, but before leaving A's scope.
 
+Now think about this question: For a singly linked list(which means there's only a next-> pointer but no prev-> pointer for each node of the list), how should we traverse this list backward?
+
+{% codeblock %}
+how do you traverse this list backward?
+
+1 -> 2 -> 3 -> 4 -> ...
+{% endcodeblock%}
+
+Here is where Function Recursion comes in.
+
+If we design a function to peek an element of a list and send its next element to the same function within the call, we can implement a list traversal. The function we're using here is called Recursive function.
+
+The order between peeking an element and sending next element into recursion is the key. If we peek first and then send, it results in a forward traversal; If it's the other way around, we get a backward traversal.
+
+{% codeblock lang:js%}
+function traverse(node) {
+	if (node) {
+		traverse(node.next)；
+		peek(node);
+	}
+}
+{% endcodeblock%}
 
 ## 2. Fast/Slow Runner (or Pointer)
