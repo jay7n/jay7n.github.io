@@ -6,17 +6,17 @@ nav:
   Posts: /archives
   Categories: /category
   Tags: /tag
-  About: /about
+  About: https://github.com/jay7n/abouthim
 
 # favicon
-favicon: /favicon.ico
+favicon: https://raw.githubusercontent.com/jay7n/abouthim/master/avatars/avatar1.ico
 
 # Profile
 nickname: Jayson Li
 
 ### this variable is MarkDown form.
 description: He Walks and Time Flows<br/>侧写流光与独行
-avatar: /image/avatar.jpeg
+avatar: https://github.com/jay7n/abouthim/blob/master/avatars/avatar1_midsize.png?raw=true
 
 # main menu navigation
 ## links key words should not be changed.

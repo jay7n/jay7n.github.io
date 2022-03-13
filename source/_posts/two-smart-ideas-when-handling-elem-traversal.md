@@ -47,7 +47,7 @@ that the given list is singly and yet we don't know its length in advance.
 Allow me to clarify something first. The recursive function mentioned above
 could of course solve these questions too. When reach the list end we get the
 length of list and then can backward-traverse a certain number of times to meet
-the condition. This would take 2 loops(forward and backward) though it still
+the condition. This would take 2 loops(forward and backward), though it still
 costs a O(n) time. But if we were more cautious and want to do it better, we
 may ask is it possible to just run for only 1 loop?
 
