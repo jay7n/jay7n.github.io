@@ -9,6 +9,7 @@ Just as same as the Death is inevitable to human, Traversing Elements of a Seque
 When Given a list or an array, People Typically peek elements one by one in a simple and brutal-force way. Well, nothing's special. I didn't look into it too much either until I began to sharp my algorithm skills recently. Reading the section *LinkedList Questions* from the book *CTCI*, I learnt that there exists two pretty smart and elegant ideas when handling elem-traversal problems.
 
 
+
 ## 1. Recursion and Backward-Traversal
 
 A function could call another function, which could keep on calling others, and so on. This forms a Call-Stack. Call-Stack is a type of Stack data structure that follows LIFO(Last In and First Out) rule. This means when function A is calling function B, there is a chance for A to do something (before and) after the context has left B's scope, but before leaving A's scope.
