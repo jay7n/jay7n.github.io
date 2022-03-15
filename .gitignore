@@ -41,6 +41,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# mark public as ignored as travis-ci is introduced
+public/
+
 # TypeScript v1 declaration files
 typings/
 
