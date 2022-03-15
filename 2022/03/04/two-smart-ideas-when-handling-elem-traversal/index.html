@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Jayson Li">
+
+
+    <meta name="subtitle" content="and Here I Record">
+
+
+
+
+<title>Two smart ideas when handling elem-traversal | He Walks and Time Flows</title>
+
+
+
+    <link rel="icon" href="https://raw.githubusercontent.com/jay7n/abouthim/master/avatars/avatar1.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jayson&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" target="_blank" rel="noopener" href="https://github.com/jay7n/abouthim">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jayson&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" target="_blank" rel="noopener" href="https://github.com/jay7n/abouthim">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Two smart ideas when handling elem-traversal</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jayson Li</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 4, 2022&nbsp;&nbsp;13:54:49</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Just as same as the Death is inevitable to human, Traversing Elements of a Sequence is also inevitable to programmers. If you’re a developer who’s been working for a few years, I bet you’ve probably written the for-loop-clause thousands of times.</p>
+<p>When Given a list or an array, People Typically peek elements one by one in a simple and brutal-force way. Well, nothing’s special. I didn’t look into it too much either until I began to sharp my algorithm skills recently. Reading the section <em>LinkedList Questions</em> from the book <em>CTCI</em>, I learnt that there exists two pretty smart and elegant ideas when handling elem-traversal problems.</p>
+<h2 id="1-Recursion-and-Backward-Traversal"><a href="#1-Recursion-and-Backward-Traversal" class="headerlink" title="1. Recursion and Backward-Traversal"></a>1. Recursion and Backward-Traversal</h2><p>A function could call another function, which could keep on calling others, and so on. This forms a Call-Stack. Call-Stack is a type of Stack data structure that follows LIFO(Last In and First Out) rule. This means when function A is calling function B, there is a chance for A to do something (before and) after the context has left B’s scope, but before leaving A’s scope.</p>
+<p>Now think about this question: For a singly linked list(which means there’s only a next-&gt; pointer but no prev-&gt; pointer for each node of the list), how do you traverse this list backward?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">how do you traverse this list backward?</span><br><span class="line"></span><br><span class="line">1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>Here is where Function Recursion comes in.</p>
+<p>If we design a function to peek an element of a list and send its next element to the same function within the call, we can implement a list traversal. The function we’re using here is called recursive function.</p>
+<p>The order between peeking an element and sending next element into recursion is the key. If we peek first and then send, it results in a forward traversal; If it’s the other way around, we get a backward traversal.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">traverse_backward</span>(<span class="params">node</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (node) &#123;</span><br><span class="line">		<span class="title function_">traverse_backward</span>(node.<span class="property">next</span>)；</span><br><span class="line">		<span class="title function_">peek</span>(node);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-Fast-x2F-Slow-Runner-or-Pointer"><a href="#2-Fast-x2F-Slow-Runner-or-Pointer" class="headerlink" title="2. Fast&#x2F;Slow Runner (or Pointer)"></a>2. Fast&#x2F;Slow Runner (or Pointer)</h2><p>Sometimes we care about a certain element which has something to do with the<br>last one but isn’t the last itself. For example maybe we want the third element<br>to the last one, or the mid-element of the list. What is a bit tricky here is<br>that the given list is singly and yet we don’t know its length in advance.</p>
+<p>Allow me to clarify something first. The recursive function mentioned above<br>could of course solve these questions too. When reach the list end we get the<br>length of list and then can backward-traverse a certain number of times to meet<br>the condition. This would take 2 loops(forward and backward), though it still<br>costs a O(n) time. But if we were more cautious and want to do it better, we<br>may ask is it possible to just run for only 1 loop?</p>
+<p>Yes. We can do it with Fast&#x2F;Slow Runner algorithm. The idea is that we create<br>two pointers, one following the other. The first pointer is deemed as Fast<br>Runner which runs in the normal speed(once a time); the pointer following it is<br>deemed as Slow Runner, which is launched when some conditions are met, in some<br>speed depending on the specific cases. When Fast Runner reaches the last<br>element, the position where the Slow Runner is currently located is exactly the<br>answer we got for this question.</p>
+<p>For example suppose we need to get the 3rd element to the end of list. We create<br>two pointers and let the first one go as normal, and after 3 steps it did, we<br>then let the second pointer begin to go. Both go 1 step once time. In the end<br>when the first is done, the second one’s position is exactly the 3rd to the<br>last. In the whole process there is only one for-loop travelling. </p>
+<p>Let’s look at another example. How do we retrieve the mid-element? The idea is<br>simple as well. When the Fast Runner goes 2 steps a time, the Slow Runner moves<br>1 step forward. This will result in a fact that at anytime the Slow Runner is at<br>the half location of the Fast Runners’.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Jayson Li</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2022/03/04/two-smart-ideas-when-handling-elem-traversal/">http://example.com/2022/03/04/two-smart-ideas-when-handling-elem-traversal/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/algorithms/"># algorithms</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Jayson Li | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
