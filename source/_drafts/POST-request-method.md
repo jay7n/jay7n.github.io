@@ -9,4 +9,17 @@ Number One and the most, it's more complex to grasp than GET. Number Two, HTTP p
 
 But one day I was being trapped in a problem for a couple of hours where uploading a file to a remote server was somehow always failed, and it's the time that I realized I had nowhere to escape. It's the time to confront this issue now. So I began to dig around how POST request really works.
 
+## POST is used to add new resources to the server
+
+## POST is normally to upload files or commit form data
+
+## There're two distinguish types of data POST could handle with
+
+## Content-Type in the request header is to specify which type of data  you're using
+
+## Mind that multipart/form-data is used to upload files. Why?
+
+## Mind that there is also a sub header config under a file-field declaration and a same name 'Content-Type'
+
+## When running in different environments(on browser or on the server), there're different ways to specify what is the Content-Type of a specified file in POST form-data
 
