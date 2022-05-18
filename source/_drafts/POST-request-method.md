@@ -3,7 +3,7 @@ title: POST request method
 tags: web
 ---
 
-There're some reasons I would always try dodging POST request whenever I get a chance. 
+There're some reasons I would try dodging POST request whenever I get a chance. 
 
 Number One and the most, it's more complex to grasp than GET. Number Two, HTTP proxies are highly error tolerant (or more obscure on the other view) so that if something appears to be wrong, you barely know which side it belongs to. Number three, some header definitions at different parts are overlapped, which gets things more tangled.
 
