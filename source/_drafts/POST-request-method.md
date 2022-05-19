@@ -1,5 +1,5 @@
 ---
-title: POST request method
+title: POST request method (1)
 tags: web
 ---
 
@@ -20,11 +20,12 @@ So when it comes to uploading a file via POST and when I start to notice how to 
 
 [img]
 
-And back to old decent days, POST is used to submit some kind of form data(there is even a \<form/\> tag in HTML, remember? normally with a couple of \<input/\> or \<label/\> elements in it). What's more is that, there are two types of data underneath, **multipart/form-data** and **application/x-www-form-urlencoded**(each name has its own ugly aesthetic taste IMO). Such types are called **MIME types**, or **Content-Types**(There're more stories about this concept below). I don't mean to introduce all of these concepts at once here, but it already explains a lot why I don't like POST, at all.
+And back to old decent days, POST is used to submit some kind of form data(there is even a \<form/\> tag in HTML, remember? normally with a couple of \<input/\> or \<label/\> elements in it). What's more is that, there are two types of data underneath, **multipart/form-data** and **application/x-www-form-urlencoded**(each name has its own ugly aesthetic taste IMO). Such types are called **MIME types**, or **Content-Types**(There're more stories about this concept below). I don't mean to bring all of these concepts here at once, but it already explains a lot why I don't like POST, at all.
 
 [img]
 
 ## POST is normally to upload files or commit form data
+To put it another way, in contrast to GET being used like a read() method in a program, POST is just like a write() method. So here the thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. Let's pick up a proper data structure which looks as generic as possible: Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best to include various types talked above, and that's our choice. And that's why FormData is chosen to be the POST's body.  
 
 ## There're two distinguish types of data POST could handle with
 
