@@ -10,17 +10,19 @@ Number One and the most, it's more complex to grasp than GET. Number Two, HTTP p
 But one day I was being trapped in a problem for a couple of hours where uploading a file to a remote server somehow always failed, and it's the time that I realized I had nowhere to escape anymore. Maybe it's the time to confront this issue now. So I began to dig around how POST request really works.
 
 ## All is starting from HTTP requests
-I guess developers won't feel strange with HTTP requests, but wait... think that again. Do they? The fact is people rarely handcraft these messages by their own, which is instead constructed by an API of a program such as a Browser in most cases. So it's true that we could see them very often, but only would when something goes wrong hence a quick check is needed. OK, for example in my Chrome I saw all parameters have been packed into this GET request, so at least it's not a part of the problem. Let's look somewhere else.
+I guess developers won't feel strange with HTTP requests, but wait... think that again. Do they? The fact is people rarely handcraft these messages by their own, which is instead constructed by an API of a program such as a Browser in most cases. So it's true that we could see them very often, but only would when something goes wrong hence a quick check is needed. OK, for example, in my Chrome I saw all parameters have been packed into this GET request, so at least it's not a part of the problem, then let's look somewhere else.
 
-That's how I as a frontend developer deal with them in my daily work and Yes, I could barely remember anything about that request message once it's done, only except for one word or two with those parameters. Seriously, even for a very simple HTTP request you'll eventually get a bunch of key-values coming from the browser. There is no reason to follow up what each of them is for.
+That's how I as a frontend developer deal with them in my daily work and Yes, I can barely remember anything about that request message once it's done, only except one word or two with those parameters. Seriously, even for a very simple HTTP request you'll eventually get a bunch of key-values coming from the browser. There is no reason to follow up what each of them is for.
 
-So when it comes to uploading a file via POST and when I start to notice how to put file or binary data in a request message,  I realize there is a optional 'body' part, which is usually seen in a response message when you need to GET some data from the server.
+[img]
 
+So when it comes to uploading a file via POST and when I start to notice how to put binary data in a request message, I realize there is an optional 'body' part, which usually appears in a response message when you want to GET some data from the server. Again here is where the strange feeling comes in: WE ACTUALLY CAN NOT CONSTRUCT THIS MESSAGE MANUALLY even if we know the HTTP rules. We have to ask some sort of HTTP client programs to do it for us. So the way of how to encapsulate binary data into the request message totally depends on what client/library we're using, and they vary a lot.
 
+[img]
 
+And back to old decent days, POST is used to submit some kind of form data(there is even a \<form/\> tag in HTML, remember? normally with a couple of \<input/\> or \<label/\> elements in it). What's more is that, there are two types of data underneath, **multipart/form-data** and **application/x-www-form-urlencoded**(each name has its own ugly aesthetic taste IMO). Such types are called **MIME types**, or **Content-Types**(There're more stories about this concept below). I don't mean to introduce all of these concepts at once here, but it already explains a lot why I don't like POST, at all.
 
-## POST is used to add new resources to the server
-
+[img]
 
 ## POST is normally to upload files or commit form data
 
