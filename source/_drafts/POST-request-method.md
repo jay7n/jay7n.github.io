@@ -25,7 +25,18 @@ And back to old decent days, POST is used to submit some kind of form data(there
 [img]
 
 ## POST is normally to upload files or commit form data
-To put it another way, in contrast to GET being used like a read() method in a program, POST is just like a write() method. So here the thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. Let's pick up a proper data structure which looks as generic as possible: Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best to include various types talked above, and that's our choice. And that's why FormData is chosen to be the POST's body.  
+To put it another way, in contrast to GET being used like a read() method in a program, POST is just like a write() method. So the thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. Let's pick up a proper data structure which looks as generic as possible: Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best to include various types talked above, and that's our choice. And that's why FormData is chosen to be the POST's body too, because FormData is exactly a kind of key-value based data structure. 
+
+Just like you set some data in a HashTable, for each item you want to add, you give it a key name and a value. For example a 'name' with 'Jayson', a 'age' with 37, and a 'male' is true, and so on.
+
+```
+{
+  name: 'Jayson',
+  age: 37,
+  male: true
+}
+```
+
 
 ## There're two distinguish types of data POST could handle with
 
