@@ -46,5 +46,5 @@ Next comes the interesting part: a 'cv' with a file stored in my hard-drive is a
 }
 ```
 
-We'll discuss this BINARY part later, but now the point is that POST is used to submit arbitrary key-value based data to the server, including the binary type, which is often used to upload files. 
+We'll discuss this BINARY part later, but now the main point is that POST is used to submit arbitrary key-value based data to the server, including the binary type which is often used to upload files. 
 
