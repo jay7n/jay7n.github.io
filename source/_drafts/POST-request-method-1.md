@@ -48,15 +48,3 @@ Next comes the interesting part: a 'cv' with a file stored in my hard-drive is a
 
 We'll discuss this BINARY part later, but now the point is that POST is used to submit arbitrary key-value based data to the server, including the binary type, which is often used to upload files. 
 
-
-## There're two ways of encoding these key-value based data in POST
-
-
-## Content-Type in the request header is to specify which type of data  you're using
-
-## Mind that multipart/form-data is used to upload files. Why?
-
-## Mind that there is also a sub header config under a file-field declaration and a same name 'Content-Type'
-
-## When running in different environments(on browser or on the server), there're different ways to specify what is the Content-Type of a specified file in POST form-data
-
