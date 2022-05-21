@@ -24,7 +24,7 @@ And back to old decent days, POST is used to submit some kind of form data(there
 
 [img]
 
-## POST is normally to upload files or commit form data
+## POST is normally to commit key-value based data with binary-data (files) included
 To put it another way, in contrast to GET being used like a read() method in a program, POST is just like a write() method. So the thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. Let's pick up a proper data structure which looks as generic as possible: Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best to include various types talked above, and that's our choice. And that's why FormData is chosen to be the POST's body too, because FormData is exactly a kind of key-value based data structure. 
 
 Just like you set some data in a HashTable, for each item you want to add, you give it a key name and a value. For example a 'name' with 'Jayson', a 'age' with 37, a 'male' is true, a 'skills' with ['javascript', 'graphics', '...'], and so on. We can then submit this data to the server via POST. 
@@ -46,11 +46,11 @@ Next comes the interesting part: a 'cv' with a file stored in my hard-drive is a
 }
 ```
 
-We'll discuss this BINARY part later. Now the point is that POST is used to submit arbitrary key-value based data to the server, including the binary type, which is often used to submit files. 
+We'll discuss this BINARY part later, but now the point is that POST is used to submit arbitrary key-value based data to the server, including the binary type, which is often used to upload files. 
 
 
+## There're two ways of encoding these key-value based data in POST
 
-## There're two distinguish types of data POST could handle with
 
 ## Content-Type in the request header is to specify which type of data  you're using
 
