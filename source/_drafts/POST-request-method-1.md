@@ -34,7 +34,7 @@ Just like you set some data in a HashTable, for each item you want to add, you g
   name: 'Jayson',
   age: 37,
   male: true,
-  skills: ['javascript', 'graphics', '...']
+  skills: ['frontend', 'javascript', 'graphics', '...'],
 }
 ```
 
