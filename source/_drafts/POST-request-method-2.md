@@ -18,10 +18,12 @@ In this way a '=' character is placed between the key and the value, and each K-
   skills: ['frontend', 'javascript', 'graphics', '...'],
 }
 ```
-could be represented as 
+could just be represented as 
 ```
 name=Jayson&age=37&male=true&skills=frontend%2Cjavascript%2Cgraphics%2C...
 ```
+
+You may noticed there are some strange characters in this string, such like '%2C'. They're referred to as [Percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) and it's just because of their existence the name of this way is being called *'...-urlencoded'*. 
 
 
 ### multipart/form-data
