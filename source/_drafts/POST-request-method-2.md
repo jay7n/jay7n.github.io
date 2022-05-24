@@ -3,7 +3,7 @@ title: POST request method (2)
 tags:
 ---
 
-## Two ways in encoding data in POST
+## Two ways of encoding data in POST
 In the previous article I talked about that POST is used to commit key-value based data to a server. Also we can call this K-V paired data as 'payload'. Despite how they're done behind the scene, there're two ways in representing(or encoding) the data. Since as a user you're the one who make the choice, it's also your job to learn them well. These two ways are: `application/x-www-form-urlencoded` and `multipart/form-data`.
 
 You may feel a little dizzy as the same way as I have experienced before. 'What the hell is these, some mysterious cipher?'. It's fine, let's just keep them in mind for now and I'll give an explanation later.
@@ -27,7 +27,9 @@ You may notice there are some strange characters in this string, such like '%2C'
 
 While pros of this approach are prominent, it also brings the cons: it takes three times the cost in space for each encoded character. For binary data, which as one kind of payload we mentioned in the last article, are full of non-alphanumeric chars by its nature. Triple cost means a lot and probably unacceptable.
 
-One note about binary data here is that, rather than you would probably think that `application/x-www-form-urlencoded` is not allowed to transfer binary data, it technically can in fact. It's just such a waste though.
+One note about binary data here is that, rather than you would probably think that `application/x-www-form-urlencoded` is not allowed to transfer binary data, it technically can. It's just such a waste though.
+
+Should we encode them ourselves? The answer is no, unless you're the author of a lib with this respect. Some client API you choose does this for you automatically as long as you specify this way in the header.
 
 ### multipart/form-data
 
