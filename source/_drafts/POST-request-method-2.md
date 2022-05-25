@@ -29,7 +29,7 @@ While pros of this approach are prominent, it also brings the cons: it takes thr
 
 One note about binary data here is that, rather than you would probably think that `application/x-www-form-urlencoded` is not allowed to transfer binary data, it technically can. It's just such a waste though.
 
-Should we encode them ourselves? The answer is no, unless you're the author of a lib with this respect. Some client API you choose does this for you automatically as long as you specify this way in the header.
+Should we encode them ourselves? The answer is no, unless you're the author of a lib with this respect. Some client API you choose does this for you automatically as long as you specify this way in the header. Examples of these client API are Axios, XMLHttpRequest or Fetch.
 
 ### multipart/form-data
 
