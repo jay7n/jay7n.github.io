@@ -9,29 +9,35 @@ Number One and the most, it's more complex to grasp than GET from the first glan
 
 But one day I was being trapped in a problem for a couple of hours where uploading a file to a remote server somehow always failed, and it's the time that I realized I had nowhere to escape anymore. Maybe it's the time to confront this issue now. So I began to dig around how POST request really works.
 
-But first,
+But first, a little background about me. I'm not the guy who chose to be a web frontend specialist at the beginning of the career. I have general programming skills, senses and taste though. So however Javascript is my favorite, HTML, CSS or HTTP is not as that much, which I should be ashamed of myself about. Anyway, let's get started.
 
-## About POST Data
+------
+
 I guess developers won't feel strange with HTTP requests, but wait... think that again. Do they? The fact is people rarely handcraft these messages on their own, instead they construct them by a program such as a Browser in most cases. So it's true that we could see them very often, but only would really dig in it when something goes wrong. For example let's say, one day something was broken, and in my Chrome I saw all parameters have been packed into this GET request, so at least it's not a part of the problem, then let's look somewhere else.
 
-That's how I as a frontend developer deal with them in my daily work and Yes, I can barely remember anything about those request messages once they're done, well, except only one word or two with those parameters. Seriously, even for a very simple HTTP request you'll eventually get a bunch of key-values coming from the browser. it is no reason to follow up what each of them is for, isn't it?
+That's how I deal with them in my daily work and Yes, I can barely remember anything about those request messages once they're done, well, except only one word or two with those parameters. To be frank, even for a very simple HTTP request you'll eventually get a bunch of key-values coming from the browser. it is no reason to follow up what each of them is for, isn't it?
 
 [img]
 
-So when it comes to uploading a file via POST which I got stuck with, and when I begin thinking how the binary data is really put in a request message, I remember there is an optional 'BODY' part we can rely on, which more usually appears in a response message when you want to GET something from the server. Well, you get BODY from a GET request, and you need to put a BODY to a POST request. Why?
+So when it comes to uploading a file via POST which I got stuck with, I begin to think how the binary data is really put in a request message, and then I remember there is an optional 'BODY' part we can rely on, which more usually appears in a response message when we want to GET something from the server. Well, on hand hand we get BODY from a GET request. On the other hand we will put a BODY to a POST request. Does this look like something else?
 
-Analogous to GET being used like a read() method in a program, POST is just like a write() method. So the thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. Let's pick up a proper data structure which could just be as generic as possible: Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best choice to include various types talked above.
+Analogous to GET being used like a read() method in a program, POST is just like a write() method. The thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. So what is a proper data structure which could just be as generic as possible? Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best choice to include various types talked above.
 
-Just like you set some data in a HashTable, for each item you want to add, you give it a key name and a value. For example a 'name' with 'Jayson', a 'age' with 37, a 'male' is true, a 'skills' with ['javascript', 'graphics', '...'], and so on. We can then submit this data to the server via POST. 
+Just like how we set some data in a HashTable, for each item we want to add, we will give it a key name and a value. For example a 'name' with 'Jayson', a 'age' with 37, a 'male' with true, a 'skills' with ['javascript', 'graphics', '...'], and so on. We pack them together and then submit it to the server via POST. 
 
 ```
 {
   name: 'Jayson',
   age: 37,
   male: true,
-  skills: ['frontend', 'javascript', 'graphics', '...'],
+  skills: ['javascript', 'graphics', '...'],
 }
 ```
+
+------
+As we all know that POST is one method of HTTP proxy which lies on the topmost level of networking model, there're a few other proxies playing the role beneath HTTP. Only with them and through a long and complicated electronic way, the client and the server are able to communicate with each other. So in most cases as a non-system developer you need to count on some tools to send/receive HTTP requests. It may be a lib, a sdk or an app (like a Browser). The tool guarantees the message is shaped as a valid request that conforms to HTTP proxy, however filling whatever contents is up to you.
+
+
 
 ------
 Again here is where the strange feeling comes in: WE ACTUALLY CAN NOT CONSTRUCT THIS MESSAGE DIRECTLY even if we know the HTTP rules. We have to ask some sort of HTTP client programs to do it for us. So the way of how to encapsulate binary data into the request message totally depends on what client/library we're using, and they vary a lot.
