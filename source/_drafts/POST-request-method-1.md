@@ -19,9 +19,14 @@ That's how I deal with them in my daily work and Yes, I can barely remember anyt
 
 [img]
 
-So when it comes to uploading a file via POST which I got stuck with, I begin to think how the binary data is really put in a request message, and then I remember there is an optional 'BODY' part we can rely on, which more usually appears in a response message when we want to GET something from the server. Well, on hand hand we get BODY from a GET request. On the other hand we will put a BODY to a POST request. Does this look like something else?
+So when it comes to uploading a file via POST which I got stuck with, I begin to think how the binary data is really put in a request message, and then I remember there is an optional 'BODY' part we can rely on, which more usually appears in a response message when we want to GET something from the server. Well, on hand hand we get BODY from a GET request, and on the other hand we will put a BODY to a POST request. Does this look like something else?
 
-Analogous to GET being used like a read() method in a program, POST is just like a write() method. The thing is how do we represent data to be written. We should allow it to be a number, a string, an array or even an object. It literally can be anything. So what is a proper data structure which could just be as generic as possible? Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best choice to include various types talked above.
+Analogous to GET being used like a read() method in a program, POST is just like a write() method. The thing here is how do we handle the data to be written. This question can be split into two sub questions.
+
+------
+
+Question 1, how do we represent the data? In theory We should allow it to be a number, a string, an array or even an object. It literally can be anything. So what is a proper data structure which could just be as generic as possible? Numbers or Strings are primitive and they can not represent others. Arrays or Lists are better but lack of the ability to describe hierarchical levels. Objects(in javascript) or HashTables, are the best choice to include various types talked above.
+u
 
 Just like how we set some data in a HashTable, for each item we want to add, we will give it a key name and a value. For example a 'name' with 'Jayson', a 'age' with 37, a 'male' with true, a 'skills' with ['javascript', 'graphics', '...'], and so on. We pack them together and then submit it to the server via POST. 
 
@@ -34,8 +39,19 @@ Just like how we set some data in a HashTable, for each item we want to add, we 
 }
 ```
 
+But that's not the end of this story. The above content is just a theoretical representation. In practice there're two typical ways of encoding the data. One is called `'application/x-www-form-urlencoded'` and the other one is called `'multipart/form-data'`. What the hell is this? They're called some kinds of `Content-Type`(or `MIME`) which is used to what type of the content the user want to send to the sever. How to specify them? Well there's a field of the HTTP header just named `'Content-Type'`. What is the difference between the two? OKay let's continue on.
+
 ------
+Question 2, How do we transfer the data?
 As we all know that POST is one method of HTTP proxy which lies on the topmost level of networking model, there're a few other proxies playing the role beneath HTTP. Only with them and through a long and complicated electronic way, the client and the server are able to communicate with each other. So in most cases as a non-system developer you need to count on some tools to send/receive HTTP requests. It may be a lib, a sdk or an app (like a Browser). The tool guarantees the message is shaped as a valid request that conforms to HTTP proxy, however filling whatever contents is up to you.
+
+In most Browsers we can create an object of the 'XmlHTTPRequest' class, or use a global method 'fetch' to send HTTP request and receive the response. In some other scenarios there're other similar counterparts.
+
+------
+
+
+
+This leads to a twisted problem which is more usually seen in network programming. That's also one reason of why I don't like to play with them. According to the proxy, you should follow the rules, but as long as you take charge of both side(the client as well as the server), basically you can do whatever you want, because you can decide how you encode/decode the message.  
 
 
 
