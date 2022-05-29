@@ -61,7 +61,9 @@ TODO
 Question 2, How do we transfer the data?
 As we all know that POST is one method of HTTP proxy which lies on the topmost level of networking model, there're a few other proxies playing the role beneath HTTP. Only with them and through a long and complicated electronic way, the client and the server are able to communicate with each other. So in most cases as a non-system developer you need to count on some tools to send/receive HTTP requests. It may be a lib, a sdk or an app (like a Browser). The tool guarantees the message is shaped as a valid request that conforms to HTTP proxy, however filling whatever contents is up to you.
 
-In most Browsers we can create an object of the 'XmlHTTPRequest' class, or use a global builtin method 'fetch' to send the HTTP request and receive the response. In some other scenarios there're other similar counterparts.
+In browsers we can create an object of the '[XmlHTTPRequest]()' class, or use a global builtin method '[fetch]()' to send the HTTP request and receive the response. In some other scenarios there're other similar counterparts. Either of these tools provides a low-level functionality though, which means we should construct the message body ourselves and let them conform to the **Content Type** declared in the HTTP request header. 
+
+**What if they aren't kept in step? Nothing happened. The tools will send whatever data we thrust into them**. For example, we can construct a **FormData** object as the POST message body but somehow provide with a **`application/x-www-form-urlencoded`**, which is obviously wrong since it breaks rules. But the message is allowed to be sent.
 
 This leads to a twisted problem which is more usually seen in network programming. That's also one of reasons why I don't like to play with them. According to the proxy, you should follow the rules, but as long as you take charge of both sides(the client as well as the server), basically you can do whatever you want, because you can decide how to encode/decode the message on two ends. 
 
