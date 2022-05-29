@@ -3,7 +3,7 @@ title: POST request method (1)
 tags: web
 ---
 
-There're some reasons I would try dodging POST requests whenever I get a chance. 
+There're some reasons I would try dodging POST requests whenever I stand a chance. 
 
 Number One and the most, it's more complex to grasp than GET from the first glance. Number Two, HTTP proxies are highly error-tolerant (or more obscure on the other view) so that if something appears to be wrong, you barely know which side it belongs to. And Number Three, some header definitions at different parts are overlapped, which gets things more tangled.
 
@@ -39,31 +39,31 @@ Just like how we set some data in a HashTable, for each item we want to add, we 
 }
 ```
 
-But that's not the end of this story. The above content is just a theoretical representation. In practice there're two typical ways of encoding the data. One is called `'application/x-www-form-urlencoded'` and the other one is called `'multipart/form-data'`. What the hell is this? They're called some kinds of `Content-Type`(or `MIME`) which is used to what type of the content the user want to send to the sever. How to specify them? Well there's a field of the HTTP header just named `'Content-Type'`. What is the difference between the two? OKay let's continue on.
+But that's not the end of this story. The above content is just a theoretical representation. In practice there're two typical ways of encoding the data. One is called `'application/x-www-form-urlencoded'` and the other one is called `'multipart/form-data'`. What the hell is this? They're called [`Content-Type`]()(or [`MIME`]()) which is used to indicate what type of the content the user want to send to the sever. How to specify them? There's a field of the HTTP header named `'Content-Type'` for this purpose. What is the difference between the two? OKay let's continue on.
 
 ### application/x-www-form-urlencoded
-
 In this way a '=' character is placed between the key and the value, and each K-V pair is concatenated with each other using the '&' character. So the data mentioned above is actually encoded like this:
+
 ```
 name=Jayson&age=37&male=true&skills=frontend%2Cjavascript%2Cgraphics%2C...
 ```
 
-You may notice there are some strange characters in this string, such like '%2C'. They're referred to as [Percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) and just because of their existence the name of this way is being called *'...-urlencoded'*. In essence that's a safer approach to transfer data via internet to avoid some non-alphanumeric characters to be treated as having some special meanings in some relay points. There's a list in the above link where you can find all special characters and what each of them is encoded into. Typically one such a char is turned into a '%' followed by its hexadecimal representation in the ASCII table, in the form of '%XX'.So it adds to the cost: it takes three times the cost in space for each encoded character.
+You may notice there are some strange characters in this string, such like '%2C'. They're referred to as [Percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) and just because of their existence its name is being called *'...-urlencoded'*. In essence that's a safer approach to transfer data via internet to avoid some non-alphanumeric characters to be treated as having some special meanings in some relay points. There's a list in the above link where you can find all special characters and what each of them is encoded into. Typically one such a char is turned into a '%' followed by its hexadecimal representation in the ASCII table, in the form of '%XX'.So it adds to the cost: it takes three times the cost in space for each encoded character.
+
+How do we implement such an encoding? While we can do it on our own, there're also some tools. In browsers we can construct a builtin [`URLSearchParams`]() object to finish the job.
+
+
 
 ### multipart/form-data
-
+TODO
 
 ------
 Question 2, How do we transfer the data?
 As we all know that POST is one method of HTTP proxy which lies on the topmost level of networking model, there're a few other proxies playing the role beneath HTTP. Only with them and through a long and complicated electronic way, the client and the server are able to communicate with each other. So in most cases as a non-system developer you need to count on some tools to send/receive HTTP requests. It may be a lib, a sdk or an app (like a Browser). The tool guarantees the message is shaped as a valid request that conforms to HTTP proxy, however filling whatever contents is up to you.
 
-In most Browsers we can create an object of the 'XmlHTTPRequest' class, or use a global method 'fetch' to send HTTP request and receive the response. In some other scenarios there're other similar counterparts.
+In most Browsers we can create an object of the 'XmlHTTPRequest' class, or use a global builtin method 'fetch' to send the HTTP request and receive the response. In some other scenarios there're other similar counterparts.
 
-------
-
-
-
-This leads to a twisted problem which is more usually seen in network programming. That's also one reason of why I don't like to play with them. According to the proxy, you should follow the rules, but as long as you take charge of both side(the client as well as the server), basically you can do whatever you want, because you can decide how you encode/decode the message.  
+This leads to a twisted problem which is more usually seen in network programming. That's also one of reasons why I don't like to play with them. According to the proxy, you should follow the rules, but as long as you take charge of both sides(the client as well as the server), basically you can do whatever you want, because you can decide how to encode/decode the message on two ends. 
 
 
 
