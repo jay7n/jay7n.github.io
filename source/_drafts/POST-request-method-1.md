@@ -63,9 +63,13 @@ As we all know that POST is one method of HTTP proxy which lies on the topmost l
 
 In browsers we can create an object of the '[XmlHTTPRequest]()' class, or use a global builtin method '[fetch]()' to send the HTTP request and receive the response. In some other scenarios there're other similar counterparts. Either of these tools provides a low-level functionality though, which means we should construct the message body ourselves and let them conform to the **Content Type** declared in the HTTP request header. 
 
-**What if they aren't kept in step? Nothing happened. The tools will send whatever data we thrust into them**. For example, we can construct a **FormData** object as the POST message body but somehow provide with a **`application/x-www-form-urlencoded`**, which is obviously wrong since it breaks rules. But the message is allowed to be sent.
+**What if they aren't kept in step? Nothing happened. The tools will send whatever data we thrust into them**. For example, we can construct a **FormData** object as the POST message body but somehow provide with a **`application/x-www-form-urlencoded`**, which is obviously wrong since it breaks rules. But the message is allowed to be sent. However it's hard to say that the server will give a absolute rejection when they receive the message. It depends.
 
 This leads to a twisted problem which is more usually seen in network programming. That's also one of reasons why I don't like to play with them. According to the proxy, you should follow the rules, but as long as you take charge of both sides(the client as well as the server), basically you can do whatever you want, because you can decide how to encode/decode the message on two ends. 
+
+Things have got evolved a bit further. Due to such an unpredictability, some ends will try to **'sniff'** the message which they got and do some auto-corrections if they can. So it's still possible that you send a wrong message which didn't obey the HTTP rules with this respect but you find the server understands you well.
+
+For some people (like me) who're not fully aware what they're doing, these kind of 'protection' are definitely a disaster. It gives them a hint, like to say, "Great! You're doing things right." while they don't. People either think they do things right OR think servers always have advanced 'magic' to guess out what you really want to express. But the fact is that not every single server will do that. Some servers just simply obey rules and directly take you down.
 
 
 
