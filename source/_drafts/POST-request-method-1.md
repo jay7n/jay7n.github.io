@@ -72,11 +72,11 @@ For some people (like me) who're not fully aware what they're doing, these kind 
 
 So our best practice is just to keep the rules as what it is, which really simplifies things. If we choose a **`application/x-www-form-urlencoded`** header, we should also provide the body with a value encoded by [`URLSearchParams`](); else if we pick up a **`multipart/form-data`** header then [`FormData`]() should be used to fill in the body. Don't mess them up. If a server rejects us, it means it doesn't follow HTTP rules, which is apparently their fault.
 
-However, manually maintaining the body message aligned with their declaration in the header is such a real pain. Some third-party libs like `Axios` can help us to handle them. With such libs we only need to specify the k-v pairs data as the JSON format, and they will encode them into correct relevant format according to content type you specified in the header.
+However, manually keeping the body messages to be aligned with their declarations in the header is such a real pain. Some third-party libs like `Axios` can help to handle them. With such libs we only need to specify the k-v pairs data as the JSON format, and they will be encoded into correct relevant formats according to content-type we specified in the header.
 
 
 
-## 
+## With Binary Data
 
 Next comes the interesting part: a 'cv' with a file stored in my hard-drive is also a valid item. Its value no doubt is a binary data. Again as a reminder we do this by borrowing some kind of client API rather than manually hand write them somewhere.
 
