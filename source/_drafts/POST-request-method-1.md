@@ -53,7 +53,6 @@ You may notice there are some strange characters in this string, such like '%2C'
 How do we implement such an encoding? While we can do it on our own, there're also some tools. In browsers we can construct a builtin [`URLSearchParams`]() object to finish the job.
 
 
-
 ### multipart/form-data
 TODO
 
@@ -73,16 +72,7 @@ For some people (like me) who're not fully aware what they're doing, these kind 
 
 So our best practice is just to keep the rules as what it is, which really simplifies things. If we choose a **`application/x-www-form-urlencoded`** header, we should also provide the body with a value encoded by [`URLSearchParams`](); else if we pick up a **`multipart/form-data`** header then [`FormData`]() should be used to fill in the body. Don't mess them up. If a server rejects us, it means it doesn't follow HTTP rules, which is apparently their fault.
 
-
-------
-Again here is where the strange feeling comes in: WE ACTUALLY CAN NOT CONSTRUCT THIS MESSAGE DIRECTLY even if we know the HTTP rules. We have to ask some sort of HTTP client programs to do it for us. So the way of how to encapsulate binary data into the request message totally depends on what client/library we're using, and they vary a lot.
-------
-
-[img]
-
-And back to old decent days, POST is used to submit some kind of form data(there is even a \<form/\> tag in HTML, remember? normally with a couple of \<input/\> or \<label/\> elements in it). What's more, there are two types of data underneath, **multipart/form-data** and **application/x-www-form-urlencoded**(each name has its own ugly aesthetic taste IMO). Such types are called **MIME types**, or **Content-Types**. I don't mean to be mumbling about all of these here, but it already gives you a good idea why I don't like POST, at all.
-
-[img]
+However, manually maintaining the body message aligned with their declaration in the header is such a real pain. Some third-party libs like `Axios` can help us to handle them. With such libs we only need to specify the k-v pairs data as the JSON format, and they will encode them into correct relevant format according to content type you specified in the header.
 
 
 
