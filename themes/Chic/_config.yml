@@ -16,7 +16,7 @@ nickname: Jayson Li
 
 ### this variable is MarkDown form.
 description: He Walks and Time Flows<br/>侧写流光与独行
-avatar: https://github.com/jay7n/abouthim/blob/master/avatars/avatar1_midsize.png?raw=true
+avatar: /assets/abouthim/avatars/avatar1.medium.png
 
 # main menu navigation
 ## links key words should not be changed.
@@ -55,6 +55,8 @@ links:
 links_text_enable: false
 links_icon_enable: true
 
+source_dir: source
+
 # Post page
 ## Post_meta
 post_meta_enable: true
@@ -73,6 +75,8 @@ post_copyright_slogan_enable: true
 post_copyright_slogan_text: Do you believe in <strong>DESTINY</strong>?
 ## toc
 post_toc_enable: true
+
+post_asset_folder: true
 
 # Page
 page_title_enable: true
