@@ -14,6 +14,12 @@ hr {
   box-sizing: content-box /* 1 */;
   height: 0 /* 1 */;
   overflow: visible /* 2 */;
+  border-color: #d3d3d3;
+  border-width: 5px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 pre {
   font-family: monospace, monospace /* 1 */;
