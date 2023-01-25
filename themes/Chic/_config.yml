@@ -18,6 +18,8 @@ nickname: Jayson Li
 description: He Walks and Time Flows<br/>侧写流光与独行
 avatar: /assets/abouthim/avatars/avatar1.medium.png
 
+root: xxxx
+
 # main menu navigation
 ## links key words should not be changed.
 ## Complete url after key words.
@@ -108,3 +110,7 @@ mathjax:
   import: demand # global or demand
   ## global: all pages will load mathjax,this will degrade performance and some grammers may be parsed wrong.
   ## demand: Recommend option,if your post need fomula, you can declare 'mathjax: true' in Front-matter
+
+marked:
+  prependRoot: true
+  postAsset: true
