@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: two movies that echos in my life
+title: Two movies that echos in my life
 date: 2023-01-22 18:02:42
 tags: rambling
 ---
