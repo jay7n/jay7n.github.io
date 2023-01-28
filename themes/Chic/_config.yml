@@ -9,14 +9,14 @@ nav:
   About: https://github.com/jay7n/abouthim
 
 # favicon
-favicon: https://raw.githubusercontent.com/jay7n/abouthim/master/avatars/avatar1.ico
+favicon: https://jayson-blog.oss-cn-hangzhou.aliyuncs.com/abouthim/avatars/avatar1.ico
 
 # Profile
 nickname: Jayson Li
 
 ### this variable is MarkDown form.
 description: He Walks and Time Flows<br/>侧写流光与独行
-avatar: /assets/abouthim/avatars/avatar1.medium.png
+avatar: https://jayson-blog.oss-cn-hangzhou.aliyuncs.com/abouthim/avatars/avatar1.medium.png
 
 root: xxxx
 
